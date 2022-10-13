@@ -11,31 +11,40 @@ function loadMainGame(){
     
 }
 function showGame(slug){
-    for (var j=0; j<listGame.length; j++) {
-        if (listGame[j].slug == slug) {
-            var tmp_url = '';
-            if(listGame[j].domain == 1){
-                tmp_url = 'https://webglmath.github.io/'+slug+"/";
-            } else if(listGame[j].domain == 2){
-                tmp_url = 'https://ubg77.github.io/edit/'+slug+"/";
-            }  else if(listGame[j].domain == 3){
-                tmp_url = 'https://ubg77.github.io/game131022/'+slug+"/";
-                
-            }  else if(listGame[j].domain == 4){
-                tmp_url = 'https://ubg77.github.io/fix/'+slug+"/";
-                if(slug.indexOf("fnaf2") != -1){
-                    tmp_url = 'https://ubg77.github.io/fix/'+slug;
+    fetch("game/all.json",{
+        headers: {
+            'Content-Type': 'application/json',
+            },
+        }).then(response => response.json())
+        .then(data => {
+            listGame = data;
+            for (var j=0; j<listGame.length; j++) {
+                if (listGame[j].slug == slug) {
+                    var tmp_url = '';
+                    if(listGame[j].domain == 1){
+                        tmp_url = 'https://webglmath.github.io/'+slug+"/";
+                    } else if(listGame[j].domain == 2){
+                        tmp_url = 'https://ubg77.github.io/edit/'+slug+"/";
+                    }  else if(listGame[j].domain == 3){
+                        tmp_url = 'https://ubg77.github.io/game131022/'+slug+"/";
+                        
+                    }  else if(listGame[j].domain == 4){
+                        tmp_url = 'https://ubg77.github.io/fix/'+slug+"/";
+                        if(slug.indexOf("fnaf2") != -1){
+                            tmp_url = 'https://ubg77.github.io/fix/'+slug;
+                        }
+                    }
+                    logEventGame(slug, "play");
+                    $('#preload').remove();
+                    $('.game-iframe-container').html('<iframe class="game-iframe" id="game-area" src="'+tmp_url+'" width="400" height="800" scrolling="none" frameborder="0" allowfullscreen=""></iframe>');
+                    $("#title").html(listGame[j].title);
+                    $("html, body").animate({ scrollTop: 0 }, "slow");
+                    break;
+                    
                 }
             }
-            logEventGame(slug, "play");
-            $('#preload').remove();
-            $('.game-iframe-container').html('<iframe class="game-iframe" id="game-area" src="'+tmp_url+'" width="400" height="800" scrolling="none" frameborder="0" allowfullscreen=""></iframe>');
-            $("#title").html(listGame[j].title);
-            $("html, body").animate({ scrollTop: 0 }, "slow");
-            break;
-            
-        }
-    }
+        });
+    
 }
 var listGame;
 fetch("game/all.json",{
