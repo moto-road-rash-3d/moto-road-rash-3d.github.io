@@ -1,12 +1,284 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Moto road rash 3d</title>
-</head>
-<body>
-    <h1>moto road rash 3d</h1>
-</body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>MOTO ROAD RASH 3D</title>
+    <link rel="shortcut icon" href="/images/motoroadrash3d.png">
+    <style type="text/css">
+      .report-modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        padding-top: 100px;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+
+      .report-modal-content {
+        background-color: #fefefe;
+        color: #000;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        max-width: 320px;
+      }
+
+      .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .report-label {
+        padding: 0 10px;
+        margin-right: 5px;
+        border-radius: 15px;
+        display: inline-block;
+        margin-bottom: 8px;
+      }
+    </style>
+
+    <link rel="preconnect" type="text/css" href="https://fonts.googleapis.com">
+    <link rel="preconnect" type="text/css" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&amp;display=swap" rel="stylesheet" as="style" onload="this.rel='stylesheet'">
+    <link rel="stylesheet" type="text/css" href="detail.css" media="all" onload="this.media='all'">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0FYV7REWR8"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-0FYV7REWR8');
+    </script>
+  </head>
+  <body style="">
+    <div class="master">
+      <div class="sidebar">
+        <div class="side-header">
+          <div class="burger for-mobile">
+            <span class="icon-burger"></span>
+          </div>
+          <a class="logo" href="/">
+            <img src="/images/logo.png" alt="logo" width="228" height="40">
+          </a>
+          <div class="bt-more for-mobile">
+            <span class="icon-ellipsis"></span>
+          </div>
+        </div>
+        <ul class="side-menu mCustomScrollbar _mCS_1" data-mcs-theme="dark">
+          <div id="mCSB_1" class="mCustomScrollBox mCS-dark mCSB_vertical mCSB_inside" style="max-height: 769px;" tabindex="0">
+            <div id="mCSB_1_container" class="mCSB_container" style="position: relative; left: 0px;" dir="ltr">
+              <li class="category-item ">
+                <a onclick="loadCategory('car')">
+                  <span class="g-icon">
+                    <img src="/images/racing.svg" alt="Car" width="40" height="40" class="mCS_img_loaded">
+                  </span> Car </a>
+              </li>
+              <li class="category-item ">
+                <a onclick="loadCategory('skill')">
+                  <span class="g-icon">
+                    <img src="/images/3d.svg" alt="3D" width="40" height="40" class="mCS_img_loaded">
+                  </span> Skill </a>
+              </li>
+              <li class="category-item ">
+                <a onclick="loadCategory('action')">
+                  <span class="g-icon">
+                    <img src="/images/actions.svg" alt="Action" width="40" height="40" class="mCS_img_loaded">
+                  </span> Action </a>
+              </li>
+              <li class="category-item ">
+                <a onclick="loadCategory('parking')">
+                  <span class="g-icon">
+                    <img src="/images/clicker.svg" alt="Clicker" width="40" height="40" class="mCS_img_loaded">
+                  </span> Parking </a>
+              </li>
+              <li class="category-item ">
+                <a onclick="loadCategory('racing')">
+                  <span class="g-icon">
+                    <img src="/images/racing.svg" alt="Racing" width="40" height="40" class="mCS_img_loaded">
+                  </span> Racing </a>
+              </li>
+              <li class="category-item ">
+                <a onclick="loadCategory('shooting')">
+                  <span class="g-icon">
+                    <img src="/images/other.svg" alt="Shooting" width="40" height="40" class="mCS_img_loaded">
+                  </span> Shooting </a>
+              </li>
+              <li class="category-item ">
+                <a onclick="loadCategory('sport')">
+                  <span class="g-icon">
+                    <img src="/images/sport.svg" alt="Sports" width="40" height="40" class="mCS_img_loaded">
+                  </span> Sports </a>
+              </li>
+              <li class="category-item ">
+                <a onclick="loadCategory('stickman')">
+                  <span class="g-icon">
+                    <img src="/images/other.svg" alt="Stickman" width="40" height="40" class="mCS_img_loaded">
+                  </span> Stickman </a>
+              </li>
+              <li class="category-item ">
+                <a onclick="loadCategory('running')">
+                  <span class="g-icon">
+                    <img src="/images/racing.svg" alt="Running" width="40" height="40" class="mCS_img_loaded">
+                  </span> Running </a>
+              </li>
+              <li class="category-item ">
+                <a onclick="loadCategory('idle')">
+                  <span class="g-icon">
+                    <img src="/images/clicker.svg" alt="Idle" width="40" height="40" class="mCS_img_loaded">
+                  </span> Idle </a>
+              </li>
+            </div>
+            <div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-dark mCSB_scrollTools_vertical" style="display: block;">
+              <div class="mCSB_draggerContainer">
+                <div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 30px; top: 375px; display: block; height: 394px; max-height: 759px;">
+                  <div class="mCSB_dragger_bar" style="line-height: 30px;"></div>
+                </div>
+                <div class="mCSB_draggerRail"></div>
+              </div>
+            </div>
+          </div>
+        </ul>
+      </div>
+      <div class="g-content">
+        <section class="header">
+          <div class="columns">
+            
+            <div class="column is-8">
+              <ul class="main-menu nav-menu">
+                <li class="nav-item ">
+                  <a class="nav-link">Setting Cloak</a>
+                </li>
+                
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section class="mid-ct section-game">
+          <div class="container">
+            <div class="columns">
+              <div class="column is-12-tablet is-9-desktop">
+                <div class="article game-container">
+                  <div class="game-iframe-container" id="game-play">
+                    <!-- <iframe class="game-iframe" id="game-area" src="#" width="400" height="800" scrolling="none" frameborder="0" allowfullscreen=""></iframe> -->
+                    <div class="talpa-splash-container" style="background: var(--color2);" id="preload"><div class="talpa-splash-top"><div><div style="--thumb:url(/images/motoroadrash3d.png)" alt="Stylish Crop Top Trends);"></div><button id="talpa-splash-button" class="SP-splash-button" onclick="loadMainGame()" style="display: block;">play now!</button><div class="talpa-loader" style="display: none;">Loading...</div></div></div><div class="talpa-splash-bottom"></div></div>
+                  </div>
+                  <div class="article-header">
+                    <div class="text">
+                      <h1 id="title">Moto road rash 3D</h1>
+                    </div>
+                    <div class="bt-group-2">
+                      <a href="#" onclick="open_fullscreen()">
+                        <span class="icon-fullscreen"></span> Fullscreen </a>
+                    </div>
+                  </div>
+                  <div class="article-ct">
+                    <h3>Description</h3>
+                    <p class="game-description">If you enjoy motorcycle racing, you'll enjoy Moto Road Rash 3D great visuals, frantic gameplay, and hard races. Get behind the handlebars and race from one location to another. You'll get to explore a big metropolis in career mode, and three more game types will keep the game intriguing for a long time. Motor Road Rash 3D unblocked includes 29 different motorcycles to unlock, so you'll need to work hard if you want the quickest bike in the game! Before you begin playing, go to the options menu and raise the graphics level to "High" - you'll be glad you did.</p>
+                    <h3>Controls</h3>
+                    <p class="game-instructions">WASD or Arrow keys - Race/Break & Turn the bikeSpace - Wheelie</p>
+                    <h3>About TBG95</h3>
+                    <p class="game-description">
+TBG95 is a website that offers unblocked games and proxy apps for school use. TBG95 was founded in January 2022 with the aim of giving users the best experience of unblocked games and unblocked proxy apps at school. You also do not need to install any additional software or know any plugins. People can play many other games, such as racing, shooting, mind games, sports, or slope games...
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="column is-12-tablet is-3-desktop">
+                <div class="widget-sidebar">
+                  <div class="sm-widget">
+                    <div class="widget">
+                      <div class="box-title">
+                        <h4>Similar Games</h4>
+                      </div>
+                      <ul class="sm-post" id="similar">
+                        
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="sm-widget">
+                    <div class="widget">
+                      <div class="box-title">
+                        <h4>Hot Games</h4>
+                      </div>
+                      <ul class="sm-post" id="hotgame">
+                        
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="similar-games">
+          <div class="container">
+            <div class="columns">
+              
+              <div class="column is-8">
+                <div class="section-title">
+                  <h3>
+                    <span class="g-icon">
+                      <img src="/images/similar.svg" alt="" width="40" height="40">
+                    </span> All Games
+                  </h3>
+                </div>
+              </div>
+              <div class="column is-4">
+                <form class="search">
+                  <input type="hidden" name="viewpage" value="search">
+                  <input type="text" placeholder="Search games" id="searchInput" oninput="searchGame()"  name="slug" minlength="2" required="">
+                  <button style="padding: 0;">
+                    <span class="icon-search"></span>
+                  </button>
+                </form>
+              </div>
+            </div>
+            <div class="columns is-multiline listing" id="listgame">
+
+            </div>
+          </div>
+        </section>
+        <section class="section-copyright">
+          <div class="container">
+            <p class="copyright"> motoroadrash3d.github.io © 2022. All rights reserved. <span class="dsb-panel"> V-1.4.6 </span>
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+    <script type="text/javascript" src="/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+    <script type="text/javascript" src="/js/firebase-app.js"></script>
+    <script type="text/javascript" src="/js/firebase-analytics.js"></script>
+    <script>
+      // ...
+      const firebaseConfig = {
+        apiKey: "AIzaSyAh4dRojwdsO-Gn13Te4qefZ_52lhHXOUA",
+        authDomain: "motoroadrash3d.firebaseapp.com",
+        projectId: "motoroadrash3d",
+        storageBucket: "motoroadrash3d.appspot.com",
+        messagingSenderId: "432810540253",
+        appId: "1:432810540253:web:8657452e3d35e586c36f34",
+        measurementId: "G-THPQ8H4K21"
+      };
+      firebase.initializeApp(firebaseConfig);
+      const analytics = firebase.analytics();
+    </script>
+     <script type="text/javascript" src="/js/custom.js"></script>
+  </body>
 </html>
