@@ -71,7 +71,7 @@ function searchGame(){
                     <div class="pic">
                     <figure class="ratio ratio-1">
                         <a rel="noindex nofollow" title="${item.title}" onclick="showGame('${item.slug}')">
-                        <img src="https://tbg95.co/${item.slug}/logo.png" class="small-thumb" alt="${item.title}">
+                        <img src="/images/logo/${item.slug}/logo.png" class="small-thumb" alt="${item.title}">
                         </a>
                     </figure>
                     </div>
