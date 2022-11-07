@@ -39,6 +39,7 @@ function showGame(slug){
                     $('.game-iframe-container').html('<iframe class="game-iframe" id="game-area" src="'+tmp_url+'" width="400" height="800" scrolling="none" frameborder="0" allowfullscreen=""></iframe>');
                     $("#title").html(listGame[j].title);
                     $("html, body").animate({ scrollTop: 0 }, "slow");
+                    $("#sticky-ads").css("display", "block");
                     break;
                     
                 }
